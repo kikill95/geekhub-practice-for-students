@@ -3,7 +3,22 @@ import logo from './logo.svg';
 import './App.css';
 import MyComponent from './MyComponent'
 
-class App extends Component {
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.initialRooms = [
+      {
+        name: 'First Room',
+        size: 25
+      },
+      {
+        name: 'Second Room',
+        size: 34
+      }
+    ]
+  }
+
   render() {
     return (
       <div className="App">
@@ -14,10 +29,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <MyComponent/>
+        <MyComponent startupRooms={this.initialRooms}/>
       </div>
     );
   }
 }
-
-export default App;
